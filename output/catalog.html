@@ -1,41 +1,116 @@
-
-    <html>
-    <head>
-        <title>Ammo Catalog</title>
-        <style>
-            body { font-family: Arial; padding: 20px; }
-            .item { margin-bottom: 20px; }
-            img { width: 150px; }
-        </style>
-        <script>
-            function filterItems() {
-                var input = document.getElementById('search').value.toLowerCase();
-                var items = document.querySelectorAll('.item');
-                items.forEach(function(item) {
-                    var caliber = item.getAttribute('data-caliber').toLowerCase();
-                    item.style.display = caliber.includes(input) ? 'block' : 'none';
-                });
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Ammo Catalog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        #filter-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #filter-bar button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: white;
+        }
+        #filter-bar button:hover {
+            background-color: #eee;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .item-info h2 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .item-info p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .item-info strong {
+            color: #000;
+            font-size: 1rem;
+        }
+        @media (min-width: 768px) {
+            .item {
+                flex-direction: row;
+                align-items: flex-start;
             }
-        </script>
-    </head>
-    <body>
-        <h1>Ammo Catalog</h1>
-        <input type="text" id="search" onkeyup="filterItems()" placeholder="Search by caliber...">
-        
+            .item img {
+                width: 200px;
+                margin-right: 20px;
+            }
+            .item-info {
+                flex: 1;
+            }
+        }
+    </style>
+    <script>
+        function filterCaliber(caliber) {
+            const items = document.querySelectorAll('.item');
+            items.forEach(item => {
+                if (caliber === 'all' || item.dataset.caliber === caliber) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Ammo Catalog</h1>
+    <div id='filter-bar'><button onclick="filterCaliber('all')">All</button><button onclick="filterCaliber('9mm')">9mm</button></div>
+    
         <div class="item" data-caliber="9mm">
             <img src="https://www.pyramydair.com/images/PY-P-3430_Blazer-9mm-Luger-Blazer_1725384159.jpg" alt="Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct">
-            <h2>Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct</h2>
-            <p><p><strong>Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct</strong></p>    FMJ (Full Metal Jacket)  Weight: 124?Grains  Muzzle Velocity: 1,090 FPS  Muzzle Energy: 327?ft/lbs  50 rounds Available now at $249.99 for 1000.0 rounds.</p>
-            <strong>$249.99 for 1000.0 rounds</strong>
+            <div class="item-info">
+                <h2>Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct</h2>
+                <p>&lt;p&gt;&lt;strong&gt;Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct&lt;/strong&gt;&lt;/p&gt;    FMJ (Full Metal Jacket)  Weight: 124?Grains  Muzzle Velocity: 1,090 FPS  Muzzle Energy: 327?ft/lbs  50 rounds Available now at $249.99 for 1000.0 rounds.</p>
+                <strong>$249.99 for 1000.0 rounds</strong>
+            </div>
         </div>
         
         <div class="item" data-caliber="9mm">
             <img src="https://basspro.scene7.com/is/image/BassPro/2353804_161998_is" alt="PMC Bronze Centerfire Rifle Ammo - .223 Remington">
-            <h2>PMC Bronze Centerfire Rifle Ammo - .223 Remington</h2>
-            <p>"PMC Bronze Centerfire Rifle Ammo provides high-performance velocity and accuracy at a cost-effective price. Bronze rifle ammunition isoaded with full metal jacket (FMJ) bullets, consisting of aead core bullet enclosed in a heavy copper jacket. PM" Available now at $487.99 for 1000.0 rounds.</p>
-            <strong>$487.99 for 1000.0 rounds</strong>
+            <div class="item-info">
+                <h2>PMC Bronze Centerfire Rifle Ammo - .223 Remington</h2>
+                <p>&quot;PMC Bronze Centerfire Rifle Ammo provides high-performance velocity and accuracy at a cost-effective price. Bronze rifle ammunition isoaded with full metal jacket (FMJ) bullets, consisting of aead core bullet enclosed in a heavy copper jacket. PM&quot; Available now at $487.99 for 1000.0 rounds.</p>
+                <strong>$487.99 for 1000.0 rounds</strong>
+            </div>
         </div>
         
-    </body>
-    </html>
-    
+</body>
+</html>
