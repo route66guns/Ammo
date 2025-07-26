@@ -1,0 +1,41 @@
+
+    <html>
+    <head>
+        <title>Ammo Catalog</title>
+        <style>
+            body { font-family: Arial; padding: 20px; }
+            .item { margin-bottom: 20px; }
+            img { width: 150px; }
+        </style>
+        <script>
+            function filterItems() {
+                var input = document.getElementById('search').value.toLowerCase();
+                var items = document.querySelectorAll('.item');
+                items.forEach(function(item) {
+                    var caliber = item.getAttribute('data-caliber').toLowerCase();
+                    item.style.display = caliber.includes(input) ? 'block' : 'none';
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Ammo Catalog</h1>
+        <input type="text" id="search" onkeyup="filterItems()" placeholder="Search by caliber...">
+        
+        <div class="item" data-caliber="9mm">
+            <img src="https://via.placeholder.com/150" alt="Ammo - UPC 123456789012.0">
+            <h2>Ammo - UPC 123456789012.0</h2>
+            <p>Reliable ammo for your range or defense needs. UPC 123456789012.0. Available now at $19.99 for 50.0 rounds.</p>
+            <strong>$19.99 for 50.0 rounds</strong>
+        </div>
+        
+        <div class="item" data-caliber="9mm">
+            <img src="https://via.placeholder.com/150" alt="Ammo - UPC 987654321098.0">
+            <h2>Ammo - UPC 987654321098.0</h2>
+            <p>Reliable ammo for your range or defense needs. UPC 987654321098.0. Available now at $34.99 for 100.0 rounds.</p>
+            <strong>$34.99 for 100.0 rounds</strong>
+        </div>
+        
+    </body>
+    </html>
+    
