@@ -1,3 +1,5 @@
+import os
+os.makedirs('output', exist_ok=True)
 import pandas as pd
 from scraper.fetch_product_info import fetch_info
 from generator.generate_catalog import generate_html
