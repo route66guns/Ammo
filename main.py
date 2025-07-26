@@ -1,3 +1,4 @@
+from seo_description_builder import build_seo_description
 import os
 os.makedirs('output', exist_ok=True)
 import pandas as pd
