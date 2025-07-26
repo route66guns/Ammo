@@ -16,4 +16,4 @@ def build_seo_description(title, caliber, rounds, price):
     elif "SP" in title_upper or "SOFT" in title_upper:
         usage = " Great for hunting medium-sized game with controlled expansion."
 
-    return f"{base}{usage} Now available for ${price} per {rounds}-round box."
+    return f"{base}{usage} Now available for ${price} per {rounds}-round case, In-Store Only."
