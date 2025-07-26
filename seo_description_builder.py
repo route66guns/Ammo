@@ -1,5 +1,10 @@
 
 def build_seo_description(title, caliber, rounds, price):
+    rounds = int(rounds) if rounds == int(rounds) else rounds
+    price = f"{price:.2f}"
+    if not caliber or caliber.upper() == "N/A":
+        caliber = "centerfire"
+
     base = f"{title} is a premium {caliber} round known for its consistency and reliability."
 
     usage = ""
@@ -11,6 +16,4 @@ def build_seo_description(title, caliber, rounds, price):
     elif "SP" in title_upper or "SOFT" in title_upper:
         usage = " Great for hunting medium-sized game with controlled expansion."
 
-    final = f"{base}{usage} Now available for ${price} per {rounds}-round box."
-
-    return final
+    return f"{base}{usage} Now available for ${price} per {rounds}-round box."
