@@ -38,3 +38,11 @@ jobs:
         git add output/catalog.html
         git commit -m "Update catalog" || echo "No changes to commit"
         git push
+- name: Commit UPC failure log
+  run: |
+    git config user.name "github-actions[bot]"
+    git config user.email "github-actions[bot]@users.noreply.github.com"
+    git add output/upc_failures.log
+    git commit -m "Log UPC failures"
+    git push
+  continue-on-error: true
