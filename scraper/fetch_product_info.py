@@ -51,7 +51,7 @@ def fetch_info(upc):
             return {
                 "title": title,
                 "description": description,
-                "image": image
+                "image_url": image
             }
 
     except Exception as e:
@@ -60,5 +60,5 @@ def fetch_info(upc):
     return {
         "title": f"Bulk Ammo – UPC {upc}",
         "description": f"Ammunition product for UPC {upc}.",
-        "image": ""
+        "image_url": ""
     }
