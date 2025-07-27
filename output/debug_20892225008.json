@@ -1,0 +1,55 @@
+{
+  "code": "OK",
+  "total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "ean": "0020892225008",
+      "title": "Winchester 5.56x45mm NATO M193 USA Target and Practice FMJ, 55gr, 150ct",
+      "description": "<p><strong>Winchester 5.56x45mm NATO M193 USA Target and Practice FMJ, 55gr, 150ct</strong></p>    5.56x45mm M193 NATO  Full metal jacket  Weight: 55 grains  Muzzle velocity: 3,180 FPS  Muzzle energy: 1,235 ft/lbs  150 rounds<br />  ?",
+      "upc": "020892225008",
+      "brand": "Winchester",
+      "model": "USA556L1",
+      "color": "Stainless steel",
+      "size": "",
+      "dimension": "",
+      "weight": "16.70 ounces",
+      "category": "",
+      "currency": "",
+      "lowest_recorded_price": 52.19,
+      "highest_recorded_price": 132.99,
+      "images": [
+        "https://www.pyramydair.com/images/PY-P-4145_Winchester-556x45mm-NATO-M193_1747243286.jpg",
+        "https://image.sportsmansguide.com/adimgs/m/7/705541_ts.jpg"
+      ],
+      "offers": [
+        {
+          "merchant": "Pyramyd Air",
+          "domain": "pyramydair.com",
+          "title": "Winchester 5.56x45mm NATO M193 USA Target and Practice FMJ, 55gr, 150ct",
+          "currency": "",
+          "list_price": 129.99,
+          "price": 109.99,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2o2x2v2z2639464s2x2&tid=1&seq=1753587573&plt=4211992073abc86a4b1b2264a13b1c9d",
+          "updated_t": 1751457248
+        },
+        {
+          "merchant": "The Sportsman's Guide",
+          "domain": "sportsmansguide.com",
+          "title": "Winchester White Box, 5.56x45mm NATO, FMJ, 55 Grain, 150 Rounds",
+          "currency": "",
+          "list_price": 109.99,
+          "price": 104.49,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=w2q203v2v203a494w2&tid=1&seq=1753587573&plt=f359d443fae9f935bde402934f316d9c",
+          "updated_t": 1657843641
+        }
+      ]
+    }
+  ]
+}

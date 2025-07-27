@@ -1,0 +1,83 @@
+{
+  "code": "OK",
+  "total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "ean": "0076683052018",
+      "title": "Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct",
+      "description": "<p><strong>Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct</strong></p>    FMJ (Full Metal Jacket)  Weight: 124?Grains  Muzzle Velocity: 1,090 FPS  Muzzle Energy: 327?ft/lbs  50 rounds",
+      "upc": "076683052018",
+      "brand": "Blazer",
+      "model": "CCI5201",
+      "color": "Gold",
+      "size": "",
+      "dimension": "",
+      "weight": "16.70 ounces",
+      "category": "Sporting Goods > Outdoor Recreation > Hunting & Shooting > Hunting",
+      "currency": "",
+      "lowest_recorded_price": 9.97,
+      "highest_recorded_price": 35.14,
+      "images": [
+        "https://www.pyramydair.com/images/PY-P-3430_Blazer-9mm-Luger-Blazer_1725384159.jpg",
+        "https://image.sportsmansguide.com/adimgs/l/1/141583_ts.jpg",
+        "http://images10.newegg.com/ProductImageCompressAll200/A17P_1_20160106605588461.jpg",
+        "http://site.unbeatablesale.com/img508/rrcci5201.gif"
+      ],
+      "offers": [
+        {
+          "merchant": "Newegg.com",
+          "domain": "newegg.com",
+          "title": "CCI BLAZER BRASS 9MM 124 FMJ 50/1000",
+          "currency": "",
+          "list_price": "",
+          "price": 26.49,
+          "shipping": "Free Shipping",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=v2p2y203z2z2d4b4x2&tid=1&seq=1753587564&plt=a5f2e02cfe96be277197b8d0883b4f5b",
+          "updated_t": 1479229734
+        },
+        {
+          "merchant": "UnbeatableSale.com",
+          "domain": "unbeatablesale.com",
+          "title": "CCI5201 Cci Blazer Brass 9mm 124 Fmj 50-1000",
+          "currency": "",
+          "list_price": "",
+          "price": 21.18,
+          "shipping": "7.99",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=v2p2031323637464&tid=1&seq=1753587564&plt=360a1a23265ad786f1027cd4310d820b",
+          "updated_t": 1420336312
+        },
+        {
+          "merchant": "Pyramyd Air",
+          "domain": "pyramydair.com",
+          "title": "Blazer 9mm Luger Blazer Brass FMJ, 124gr, 50ct",
+          "currency": "",
+          "list_price": 29.99,
+          "price": 16.99,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=23u2x2w213538464t2&tid=1&seq=1753587564&plt=edc9453814d28840b7e777dcc4225ef2",
+          "updated_t": 1751457245
+        },
+        {
+          "merchant": "The Sportsman's Guide",
+          "domain": "sportsmansguide.com",
+          "title": "CCI Blazer Brass, 9mm, FMJ-RN, 124 Grain, 50 Rounds",
+          "currency": "",
+          "list_price": 15.99,
+          "price": 15.19,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2r2z213w2z27464r2&tid=1&seq=1753587564&plt=8b4fd41df935bdc69299e68353f7c639",
+          "updated_t": 1752746464
+        }
+      ]
+    }
+  ]
+}

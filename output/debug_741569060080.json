@@ -1,0 +1,82 @@
+{
+  "code": "OK",
+  "total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "ean": "0741569060080",
+      "title": "PMC Bronze Centerfire Rifle Ammo - .223 Remington",
+      "description": "\"PMC Bronze Centerfire Rifle Ammo provides high-performance velocity and accuracy at a cost-effective price. Bronze rifle ammunition isoaded with full metal jacket (FMJ) bullets, consisting of aead core bullet enclosed in a heavy copper jacket. PM\"",
+      "upc": "741569060080",
+      "brand": "PMC",
+      "model": "PMC223A",
+      "color": "Gold",
+      "size": "",
+      "dimension": "",
+      "weight": "",
+      "category": "Sporting Goods > Outdoor Recreation > Hunting & Shooting > Archery > Bows & Crossbows > Recurve & Longbows",
+      "lowest_recorded_price": 7.49,
+      "highest_recorded_price": 16.07,
+      "images": [
+        "https://basspro.scene7.com/is/image/BassPro/2353804_161998_is",
+        "https://image.sportsmansguide.com/adimgs/l/5/51603_ts.jpg",
+        "http://site.unbeatablesale.com/img508/rrpmc223a.gif",
+        "http://img1.r10.io/PIC/77983472/0/1/250/77983472.jpg"
+      ],
+      "offers": [
+        {
+          "merchant": "UnbeatableSale.com",
+          "domain": "unbeatablesale.com",
+          "title": "PMC223A Pmc Brnz 223rem 55 Grain Weight Fmj 20-1000",
+          "currency": "",
+          "list_price": "",
+          "price": 12.85,
+          "shipping": "7.99",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=v2p203132363e454&tid=1&seq=1753587566&plt=cfaa6b0eb70b63669b9f0dafdb21488d",
+          "updated_t": 1501949394
+        },
+        {
+          "merchant": "Bass Pro Shops",
+          "domain": "basspro.com",
+          "title": "PMC Bronze Centerfire Rifle Ammo - .223 Remington",
+          "currency": "",
+          "list_price": "",
+          "price": 9.99,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=v2o2y2u2x2y27474v2&tid=1&seq=1753587566&plt=8da961701c5d9c51cf60ec2cfa39855f",
+          "updated_t": 1536295973
+        },
+        {
+          "merchant": "Rakuten(Buy.com)",
+          "domain": "rakuten.com",
+          "title": "Pmc Brnz 223rem 55 Grain Weight Fmj 20/1000",
+          "currency": "",
+          "list_price": "",
+          "price": 29.71,
+          "shipping": "Free Shipping",
+          "condition": "New",
+          "availability": "Out of Stock",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2p233u2v2x2f474q2&tid=1&seq=1753587566&plt=9f49014a3dfb4f0bb724637c3147ea34",
+          "updated_t": 1464282873
+        },
+        {
+          "merchant": "The Sportsman's Guide",
+          "domain": "sportsmansguide.com",
+          "title": "PMC Bronze, .223 Remington, FMJBT, 55 Grain, 20 Rounds",
+          "currency": "",
+          "list_price": 11.99,
+          "price": 11.39,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2r2z213x20364b4v2&tid=1&seq=1753587566&plt=307dcf87afe840bda7cca00ae4eec537",
+          "updated_t": 1752842619
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "code": "OK",
+  "total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "ean": "3877002037092",
+      "title": "Igman, 7.62x39mm, FMJ, 123 Grain, 15 Rounds",
+      "description": "Igman, 7.62x39mm, FMJ, 123 Grain, 15 Rounds",
+      "brand": "IGMAN",
+      "model": "IG76239",
+      "color": "",
+      "size": "",
+      "dimension": "",
+      "weight": "",
+      "category": "",
+      "currency": "",
+      "lowest_recorded_price": 8.54,
+      "highest_recorded_price": 12.34,
+      "images": [
+        "https://image.sportsmansguide.com/adimgs/l/7/734145_ts.jpg"
+      ],
+      "offers": [
+        {
+          "merchant": "The Sportsman's Guide",
+          "domain": "sportsmansguide.com",
+          "title": "Igman, 7.62x39mm, FMJ, 123 Grain, 15 Rounds",
+          "currency": "",
+          "list_price": 12.99,
+          "price": 12.34,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=13r21313v223b4b4w2&tid=1&seq=1753587568&plt=8a2ac6016ddaf271b9ed17981e0e9db4",
+          "updated_t": 1752746685
+        }
+      ]
+    }
+  ]
+}

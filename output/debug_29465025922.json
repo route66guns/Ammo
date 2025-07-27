@@ -1,0 +1,83 @@
+{
+  "code": "OK",
+  "total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "ean": "0029465025922",
+      "title": "Federal Premium Top Gun Target Load Shotshells - Velocity 1180 - 12 Gauge - #8 Shot",
+      "description": "A simple and effective target load for trap, skeet, and sporting clays, Federal Premium Top Gun Target Load Shotshells are perfect for the shooter who spends a lot of time breaking clays without breaking his or her wallet. Made t",
+      "upc": "029465025922",
+      "brand": "Federal",
+      "model": "TG121 8",
+      "color": "Gold",
+      "size": "",
+      "dimension": "",
+      "weight": "16.70 ounces",
+      "category": "Mature > Weapons > Gun Care & Accessories > Ammunition",
+      "currency": "",
+      "lowest_recorded_price": 5.47,
+      "highest_recorded_price": 12.34,
+      "images": [
+        "https://www.pyramydair.com/images/PY-P-3791_FEDERAL-12GA-234-234DE_1724786875.jpg",
+        "https://basspro.scene7.com/is/image/BassPro/1890364_12020705010713?$Prod_Thumbnail$",
+        "https://image.sportsmansguide.com/adimgs/l/1/152074_ts.jpg",
+        "https://www.campingworld.com/on/demandware.static/-/Sites-global-master-catalog/default/dw29466cf7/images/large/201586_1.jpg"
+      ],
+      "offers": [
+        {
+          "merchant": "Pyramyd Air",
+          "domain": "pyramydair.com",
+          "title": "Federal 12GA Top Gun 1oz, 8 Shot, 1180 FPS, 25ct",
+          "currency": "",
+          "list_price": 14.99,
+          "price": 9.99,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=23t2x2w213z2b464w2&tid=1&seq=1753587570&plt=99d6c6f6c875bcab94833b909ce11589",
+          "updated_t": 1751457247
+        },
+        {
+          "merchant": "Bass Pro Shops",
+          "domain": "basspro.com",
+          "title": "Federal Premium Top Gun Target Load Shotshells - Velocity 1180 - 12 Gauge - #8 Shot",
+          "currency": "",
+          "list_price": "",
+          "price": 6.99,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2s2x2w2z2x2e454z2&tid=1&seq=1753587570&plt=7891884611062a07b5295a291499d19a",
+          "updated_t": 1440738654
+        },
+        {
+          "merchant": "Camping World",
+          "domain": "campingworld.com",
+          "title": "Federal Top Gun Shotshell Target Loads, 12-ga, 2-3/4\", 1 oz, #8, 1180 fps",
+          "currency": "",
+          "list_price": 6.29,
+          "price": 5.47,
+          "shipping": "7.95",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=x2r223v20363a444z2&tid=1&seq=1753587570&plt=1a9e355a9084b6ca2f0a37f3f08c2412",
+          "updated_t": 1556981951
+        },
+        {
+          "merchant": "The Sportsman's Guide",
+          "domain": "sportsmansguide.com",
+          "title": "Federal Top Gun Target, 2 3/4\" Shell, 1 oz., 12 Gauge Shotshells, 25 Rounds",
+          "currency": "",
+          "list_price": 9.99,
+          "price": 9.49,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2r2z213x213d454w2&tid=1&seq=1753587570&plt=9dd9271ec107092dcc0702f47bda87cd",
+          "updated_t": 1752746583
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "code": "OK",
+  "total": 1,
+  "offset": 0,
+  "items": [
+    {
+      "ean": "0047700346007",
+      "title": "Remington Gun Club Target Loads, 12 Gauge, 2 3/4&quot; Shell, 1 oz., 25 Rounds",
+      "description": "Remington Gun Club Target Loads, 12 Gauge, 2 3/4&quot; Shell, 1 oz., 25 Rounds",
+      "upc": "047700346007",
+      "brand": "REMINGTON",
+      "model": "GC1218",
+      "color": "Gold",
+      "size": "",
+      "dimension": "",
+      "weight": "16.70 ounces",
+      "category": "",
+      "currency": "",
+      "lowest_recorded_price": 5.5,
+      "highest_recorded_price": 9.49,
+      "images": [
+        "https://image.sportsmansguide.com/adimgs/m/1/161449_ts.jpg"
+      ],
+      "offers": [
+        {
+          "merchant": "The Sportsman's Guide",
+          "domain": "sportsmansguide.com",
+          "title": "Remington Gun Club Target Loads, 12 Gauge, 2 3/4&quot; Shell, 1 oz., 25 Rounds",
+          "currency": "",
+          "list_price": 9.99,
+          "price": 9.49,
+          "shipping": "",
+          "condition": "New",
+          "availability": "",
+          "link": "https://www.upcitemdb.com/norob/alink/?id=u2r2z213x213e4c4w2&tid=1&seq=1753587572&plt=a209b12ac4d63d5ac153b9fbb5c261b6",
+          "updated_t": 1694856720
+        }
+      ]
+    }
+  ]
+}
