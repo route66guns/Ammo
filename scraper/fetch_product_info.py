@@ -23,20 +23,28 @@ def fetch_info(upc):
         if data.get("code") == "OK" and data.get("total", 0) > 0:
             item = data["items"][0]
 
-            # Title
-            raw_title = item.get("title")
-            title = raw_title.strip() if raw_title and raw_title.strip() else f"Bulk Ammo – UPC {upc}"
+            # === TITLE ===
+            title = item.get("title") or ""
+            if not title.strip():
+                title = item.get("brand", "") + " " + item.get("model", "")
+            if not title.strip() and item.get("offers"):
+                title = item["offers"][0].get("title", "")
+            if not title.strip():
+                title = f"Bulk Ammo – UPC {upc}"
+            title = title.strip()
 
-            # Description
-            raw_desc = item.get("description")
-            if raw_desc:
+            # === DESCRIPTION ===
+            raw_desc = item.get("description", "")
+            if raw_desc.strip():
                 soup = BeautifulSoup(raw_desc, "html.parser")
-                stripped_desc = soup.get_text(separator=" ", strip=True)
-                description = stripped_desc if stripped_desc else f"Ammunition product for UPC {upc}."
+                description = soup.get_text(separator=" ", strip=True)
             else:
-                description = f"Ammunition product for UPC {upc}."
+                if title and title != f"Bulk Ammo – UPC {upc}":
+                    description = f"{title} is a premium ammunition product known for its reliability."
+                else:
+                    description = f"Ammunition product for UPC {upc}."
 
-            # Images (use only valid image links)
+            # === IMAGE ===
             images = item.get("images", [])
             image = ""
             for img_url in images:
