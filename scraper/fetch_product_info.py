@@ -2,10 +2,13 @@
 import requests
 import json
 import os
+import time
 
 def fetch_info(upc):
     log_path = "output/upc_failures.log"
     os.makedirs("output", exist_ok=True)
+
+    time.sleep(1.5)  # Delay added to reduce chance of hitting API rate limits
 
     url = f"https://api.upcitemdb.com/prod/trial/lookup?upc={upc}"
     try:
@@ -31,7 +34,6 @@ def fetch_info(upc):
                     continue
 
             if not image_url:
-                # Log missing image only
                 with open(log_path, "a") as log_file:
                     log_file.write(f"UPC {upc} - NO IMAGE FOUND\n")
                 image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
@@ -43,7 +45,6 @@ def fetch_info(upc):
             }
 
         else:
-            # Log total failure
             with open(log_path, "a") as log_file:
                 log_file.write(f"UPC {upc} - NO DATA RETURNED\n")
             return {
