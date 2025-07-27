@@ -13,17 +13,27 @@ def fetch_info(upc):
         data = resp.json()
         if data.get("code") == "OK" and data.get("total", 0) > 0:
             item = data["items"][0]
+            title = item.get("title", f"Bulk Ammo – UPC {upc}")
+            description = item.get("description", "")
+            image_url = None
+
             for img_url in item.get("images", []):
                 try:
                     img_test = requests.head(img_url, timeout=5)
                     if img_test.status_code == 200:
-                        return {
-                            "title": item["title"] if item.get("title") else f"Bulk Ammo – UPC {upc}",
-                            "description": item.get("description", ""),
-                            "image_url": img_url
-                        }
+                        image_url = img_url
+                        break
                 except requests.RequestException:
                     continue
+
+            if not image_url:
+                image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+
+            return {
+                "title": title if title else f"Bulk Ammo – UPC {upc}",
+                "description": description,
+                "image_url": image_url
+            }
 
         # Log UPCs that returned no results
         with open(log_path, "a") as log_file:
@@ -32,7 +42,7 @@ def fetch_info(upc):
         return {
             "title": f"Bulk Ammo – UPC {upc}",
             "description": f"Ammo product for UPC {upc}.",
-            "image_url": "https://via.placeholder.com/150?text=No+Image"
+            "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
         }
 
     except Exception as e:
@@ -43,5 +53,5 @@ def fetch_info(upc):
         return {
             "title": f"Bulk Ammo – UPC {upc}",
             "description": f"Ammo product for UPC {upc}.",
-            "image_url": "https://via.placeholder.com/150?text=Error"
+            "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
         }
