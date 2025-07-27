@@ -11,10 +11,14 @@ def fetch_info(upc):
     try:
         resp = requests.get(url)
         data = resp.json()
+        debug_path = f"output/debug_{upc}.json"
+        with open(debug_path, "w") as debug_file:
+            json.dump(data, debug_file, indent=2)
+
         if data.get("code") == "OK" and data.get("total", 0) > 0:
             item = data["items"][0]
             title = item.get("title", f"Bulk Ammo – UPC {upc}")
-            description = item.get("description", "")
+            description = item.get("description", f"Ammunition product for UPC {upc}.")
             image_url = None
 
             for img_url in item.get("images", []):
@@ -27,31 +31,32 @@ def fetch_info(upc):
                     continue
 
             if not image_url:
+                # Log missing image only
+                with open(log_path, "a") as log_file:
+                    log_file.write(f"UPC {upc} - NO IMAGE FOUND\n")
                 image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
 
             return {
-                "title": title if title else f"Bulk Ammo – UPC {upc}",
-                "description": description,
+                "title": title.strip() if title else f"Bulk Ammo – UPC {upc}",
+                "description": description.strip(),
                 "image_url": image_url
             }
 
-        # Log UPCs that returned no results
-        with open(log_path, "a") as log_file:
-            log_file.write(f"UPC {upc} - NO DATA RETURNED\n")
-
-        return {
-            "title": f"Bulk Ammo – UPC {upc}",
-            "description": f"Ammo product for UPC {upc}.",
-            "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
-        }
+        else:
+            # Log total failure
+            with open(log_path, "a") as log_file:
+                log_file.write(f"UPC {upc} - NO DATA RETURNED\n")
+            return {
+                "title": f"Bulk Ammo – UPC {upc}",
+                "description": f"Ammunition product for UPC {upc}.",
+                "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+            }
 
     except Exception as e:
-        # Log UPCs that caused errors
         with open(log_path, "a") as log_file:
             log_file.write(f"UPC {upc} - ERROR: {str(e)}\n")
-
         return {
             "title": f"Bulk Ammo – UPC {upc}",
-            "description": f"Ammo product for UPC {upc}.",
+            "description": f"Ammunition product for UPC {upc}.",
             "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
         }
