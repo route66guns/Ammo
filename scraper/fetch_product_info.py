@@ -3,12 +3,34 @@ import requests
 import json
 import os
 import time
+from bs4 import BeautifulSoup
+
+def test_image_url(url):
+    try:
+        resp = requests.head(url, timeout=5)
+        return resp.status_code == 200
+    except:
+        return False
+
+def google_image_fallback(upc):
+    search_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+    headers = {"User-Agent": "Mozilla/5.0"}
+    try:
+        html = requests.get(search_url, headers=headers, timeout=5).text
+        soup = BeautifulSoup(html, "html.parser")
+        img_tags = soup.find_all("img")
+        for img in img_tags:
+            src = img.get("src")
+            if src and src.startswith("http") and test_image_url(src):
+                return src
+    except Exception:
+        pass
+    return None
 
 def fetch_info(upc):
     log_path = "output/upc_failures.log"
     os.makedirs("output", exist_ok=True)
-
-    time.sleep(1.5)  # Delay added to reduce chance of hitting API rate limits
+    time.sleep(1.5)  # Delay to avoid API rate limit
 
     url = f"https://api.upcitemdb.com/prod/trial/lookup?upc={upc}"
     try:
@@ -25,18 +47,16 @@ def fetch_info(upc):
             image_url = None
 
             for img_url in item.get("images", []):
-                try:
-                    img_test = requests.head(img_url, timeout=5)
-                    if img_test.status_code == 200:
-                        image_url = img_url
-                        break
-                except requests.RequestException:
-                    continue
+                if test_image_url(img_url):
+                    image_url = img_url
+                    break
 
             if not image_url:
-                with open(log_path, "a") as log_file:
-                    log_file.write(f"UPC {upc} - NO IMAGE FOUND\n")
-                image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+                image_url = google_image_fallback(upc)
+                if not image_url:
+                    with open(log_path, "a") as log_file:
+                        log_file.write(f"UPC {upc} - NO IMAGE FOUND\n")
+                    image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
 
             return {
                 "title": title.strip() if title else f"Bulk Ammo – UPC {upc}",
@@ -45,19 +65,26 @@ def fetch_info(upc):
             }
 
         else:
-            with open(log_path, "a") as log_file:
-                log_file.write(f"UPC {upc} - NO DATA RETURNED\n")
+            image_url = google_image_fallback(upc)
+            if not image_url:
+                with open(log_path, "a") as log_file:
+                    log_file.write(f"UPC {upc} - NO DATA RETURNED\n")
+                image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+
             return {
                 "title": f"Bulk Ammo – UPC {upc}",
                 "description": f"Ammunition product for UPC {upc}.",
-                "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+                "image_url": image_url
             }
 
     except Exception as e:
         with open(log_path, "a") as log_file:
             log_file.write(f"UPC {upc} - ERROR: {str(e)}\n")
+        image_url = google_image_fallback(upc)
+        if not image_url:
+            image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
         return {
             "title": f"Bulk Ammo – UPC {upc}",
             "description": f"Ammunition product for UPC {upc}.",
-            "image_url": f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+            "image_url": image_url
         }
