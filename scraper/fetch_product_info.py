@@ -1,90 +1,64 @@
-
 import requests
-import json
-import os
-import time
 from bs4 import BeautifulSoup
+import json
+import time
+import os
 
-def test_image_url(url):
-    try:
-        resp = requests.head(url, timeout=5)
-        return resp.status_code == 200
-    except:
-        return False
-
-def google_image_fallback(upc):
-    search_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
-    headers = {"User-Agent": "Mozilla/5.0"}
-    try:
-        html = requests.get(search_url, headers=headers, timeout=5).text
-        soup = BeautifulSoup(html, "html.parser")
-        img_tags = soup.find_all("img")
-        for img in img_tags:
-            src = img.get("src")
-            if src and src.startswith("http") and test_image_url(src):
-                return src
-    except Exception:
-        pass
-    return None
+API_URL = "https://api.upcitemdb.com/prod/trial/lookup"
+HEADERS = {
+    "Content-Type": "application/json",
+    "User-Agent": "Ammo-Catalog-Builder"
+}
 
 def fetch_info(upc):
-    log_path = "output/upc_failures.log"
-    os.makedirs("output", exist_ok=True)
-    time.sleep(1.5)  # Delay to avoid API rate limit
-
-    url = f"https://api.upcitemdb.com/prod/trial/lookup?upc={upc}"
     try:
-        resp = requests.get(url)
-        data = resp.json()
-        debug_path = f"output/debug_{upc}.json"
-        with open(debug_path, "w") as debug_file:
+        response = requests.get(API_URL, params={"upc": upc}, headers=HEADERS, timeout=10)
+        data = response.json()
+
+        # Save debug log
+        os.makedirs("output", exist_ok=True)
+        with open(f"output/debug_{upc}.json", "w", encoding="utf-8") as debug_file:
             json.dump(data, debug_file, indent=2)
 
         if data.get("code") == "OK" and data.get("total", 0) > 0:
             item = data["items"][0]
-            title = item.get("title", f"Bulk Ammo – UPC {upc}")
-            description = item.get("description", f"Ammunition product for UPC {upc}.")
-            image_url = None
 
-            for img_url in item.get("images", []):
-                if test_image_url(img_url):
-                    image_url = img_url
-                    break
+            # Title
+            raw_title = item.get("title")
+            title = raw_title.strip() if raw_title and raw_title.strip() else f"Bulk Ammo – UPC {upc}"
 
-            if not image_url:
-                image_url = google_image_fallback(upc)
-                if not image_url:
-                    with open(log_path, "a") as log_file:
-                        log_file.write(f"UPC {upc} - NO IMAGE FOUND\n")
-                    image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+            # Description
+            raw_desc = item.get("description")
+            if raw_desc:
+                soup = BeautifulSoup(raw_desc, "html.parser")
+                stripped_desc = soup.get_text(separator=" ", strip=True)
+                description = stripped_desc if stripped_desc else f"Ammunition product for UPC {upc}."
+            else:
+                description = f"Ammunition product for UPC {upc}."
 
-            return {
-                "title": title.strip() if title else f"Bulk Ammo – UPC {upc}",
-                "description": description.strip(),
-                "image_url": image_url
-            }
-
-        else:
-            image_url = google_image_fallback(upc)
-            if not image_url:
-                with open(log_path, "a") as log_file:
-                    log_file.write(f"UPC {upc} - NO DATA RETURNED\n")
-                image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
+            # Images (use only valid image links)
+            images = item.get("images", [])
+            image = ""
+            for img_url in images:
+                try:
+                    img_response = requests.get(img_url, stream=True, timeout=5)
+                    if img_response.status_code == 200:
+                        image = img_url
+                        break
+                except:
+                    continue
 
             return {
-                "title": f"Bulk Ammo – UPC {upc}",
-                "description": f"Ammunition product for UPC {upc}.",
-                "image_url": image_url
+                "title": title,
+                "description": description,
+                "image": image
             }
 
     except Exception as e:
-        with open(log_path, "a") as log_file:
-            log_file.write(f"UPC {upc} - ERROR: {str(e)}\n")
-        image_url = google_image_fallback(upc)
-        if not image_url:
-            image_url = f"https://www.google.com/search?tbm=isch&q=ammo+UPC+{upc}"
-        return {
-            "title": f"Bulk Ammo – UPC {upc}",
-            "description": f"Ammunition product for UPC {upc}.",
-            "image_url": image_url
-        }
+        print(f"Error fetching info for UPC {upc}: {e}")
+
+    return {
+        "title": f"Bulk Ammo – UPC {upc}",
+        "description": f"Ammunition product for UPC {upc}.",
+        "image": ""
+    }
